@@ -1,0 +1,56 @@
+  <header
+        class="header-bar d-flex d-lg-block align-items-center"
+        data-aos="fade-left"
+      >
+        <div class="site-logo">
+          <a href="/"> Divine Inspirational Art</a>
+        </div>
+
+        <div
+          class="d-inline-block d-xl-none ml-md-0 ml-auto py-3"
+          style="position: relative; top: 3px"
+        >
+          <a href="#" class="site-menu-toggle js-menu-toggle text-white"
+            ><span class="icon-menu h3"></span
+          ></a>
+        </div>
+
+        <div class="main-menu">
+          <ul class="js-clone-nav">
+
+            <li class="active"><a href="/">Home</a></li>
+            {{!-- categories start from here --}}
+            <li>
+            <a data-toggle="collapse" href="#demo">
+              Categories
+            </a>
+          </li>
+          <div id="demo" class="collapse">
+            {{#each cats}}
+              <li>
+                  <a href="/single/{{this.categoryName}}">{{this.categoryName}}</a>
+              </li>
+           {{/each}}
+           </div>
+
+            {{!-- categories ends from here --}}
+           
+            <li><a href="/cart">Cart
+              <span class="badge badge-lg bg-danger">{{session.cart.totalQuantity}}</span>
+            </a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="#" class="btn btn-primary">Donate</a></li>
+          </ul>
+          <ul class="social js-clone-nav">
+            <li>
+              <a href="#"><span class="fa fa-facebook"></span></a>
+            </li>
+            <li>
+              <a href="#"><span class="fa fa-twitter"></span></a>
+            </li>
+            <li>
+              <a href="#"><span class="fa fa-instagram"></span></a>
+            </li>
+          </ul>
+        </div>
+      </header>

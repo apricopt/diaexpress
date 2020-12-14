@@ -1,0 +1,125 @@
+<h4>Images Managment</h4>
+<hr>
+ 
+
+{{#if message}}
+<h5 class="message">{{message}}</h5>
+{{/if}}
+
+
+
+
+<ul class="collapsible">
+{{#each data}}
+    <li>
+      <div class="collapsible-header"><i class="material-icons">add_photo_alternate</i>{{this.categoryName}}<span class="badge">{{this.products.length}}</span></div>
+      <div class="collapsible-body">
+          {{!-- the products will displayed here --}}
+          <div style="padding: 30px 30px;">
+<button data-target="{{this._id}}" class="btn-floating btn-large pulse modal-trigger"><i class="material-icons">add</i></button>
+</div>
+              <table class="responsive-table centered highlight" style="margin: 30px 0px;">
+  <thead>
+    <tr>
+      <th>Product Name</th>
+      <th>Description</th>
+      <th>Image</th>
+      <th>Price</th>
+      <th>Delete/Edit</th>
+    </tr>
+  </thead>
+                {{#each this.products}}
+
+                
+                   <tr class="tablerow">
+      <td>{{this.productName}}</td>
+      <td>{{this.description}}</td>
+      <td><a target="_blank" href="{{this.url}}"><img style="height: 40px ;width:40px; border-radius:50%; object-fit:cover;" src={{this.url}}></a></td>
+
+      <td style="width: 300px; overflow-x: scroll">{{ this.price }}</td>
+      <td>
+        
+        <button
+          name={{ this._id }}
+          onclick="deleteone(event , '/api/product/deleteone')"
+          class="btn waves-effect red darken-3"
+         
+        >
+          <i class="fa fa-trash"></i>
+        </button>
+      </td>
+    </tr>
+                
+                {{/each}}
+             
+             </table>
+
+
+          {{!-- the products display ends --}}
+
+      </div>
+    </li>
+    {{!-- modal for adding product in category --}}
+   <div id="{{this._id}}" class="modal">
+    <div class="modal-content">
+      <h4>Add product into {{this.categoryName}}</h4>
+     {{!-- form starts --}}
+     <div class="row">
+    <form class="col s12" action="/api/product/createone" method="POST" enctype="multipart/form-data">
+      <div class="row">
+          {{!-- entry starts --}}
+          <input type="hidden"  name="catId" value="{{this._id}}" />
+        <div class="input-field col s6">
+          <input placeholder="Title" id="first_name" name="productName" type="text" >
+          <label for="first_name">Product Name</label>
+        </div>
+        {{!-- entry ends --}}
+          {{!-- entry starts --}}
+        <div class="input-field col s6">
+          <input placeholder="Description" name="description" id="first_name" type="text" >
+          <label for="first_name">Description</label>
+        </div>
+        {{!-- entry ends --}}
+         {{!-- entry starts --}}
+        <div class="input-field col s6">
+          <input placeholder="$" name="price" id="first_name" type="text" >
+          <label for="first_name">Price</label>
+        </div>
+        {{!-- entry ends --}}
+         {{!-- entry starts --}}
+        <div class="input-field col s6">
+         <div class="file-field input-field">
+      <div class="btn">
+        <span>Image</span>
+        <input name="url" type="file">
+      </div>
+      <div class="file-path-wrapper">
+        <input name="image" class="file-path validate" type="text">
+      </div>
+    </div>
+         
+        </div>
+        {{!-- entry ends --}}
+        {{!-- entry starts --}}
+        <div class="input-field col s12">
+        <input value="Create" class="btn teal darken-3" id="first_name" type="submit" />
+        </div>
+        {{!-- entry ends --}}
+        </div>
+      
+        </form>
+        </div>
+     {{!-- form ends --}}
+    </div>
+    <div class="modal-footer">
+     
+    </div>
+  </div>
+  
+  {{!-- modal ends to add product into category --}}
+{{/each}}
+  </ul>
+
+
+
+

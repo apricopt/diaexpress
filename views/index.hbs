@@ -1,0 +1,279 @@
+
+{{#if message}}
+<h1>hahahahahhaah</h1>
+{{/if}}
+<main class="main-content">
+          <div class="homeheader">
+
+          </div>
+          <h1 class="text-primary text-center my-4">Categories</h1>
+        <div class="container-fluid photos">
+          <div class="row align-items-stretch">
+
+{{#each cats}}
+
+
+            <div class="col-6 col-md-4 col-lg-4" data-aos="fade-up">
+              <a href="single/{{this.categoryName}}" class="d-block photo-item">
+                <img src="{{this.thumbnail}}" alt="Image" class="img-fluid" />
+                <div class="photo-text-more">
+                  <div class="photo-text-more">
+                    <h3 class="heading">{{this.categoryName}}</h3>
+                    <span class="meta">{{this.products.length}}</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+{{/each}}
+            {{!-- <div
+              class="col-6 col-md-6 col-lg-4"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <a href="single.html" class="d-block photo-item">
+                <img src="images/img_5.jpg" alt="Image" class="img-fluid" />
+                <div class="photo-text-more">
+                  <div class="photo-text-more">
+                    <h3 class="heading">Birkat HaEsek</h3>
+                    <span class="meta">42 Photos</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="col-6 col-md-6 col-lg-3" data-aos="fade-up">
+              <a href="single.html" class="d-block photo-item">
+                <img src="images/img_1.jpg" alt="Image" class="img-fluid" />
+                <div class="photo-text-more">
+                  <h3 class="heading">Book Series</h3>
+                  <span class="meta">42 Photos</span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="col-6 col-md-6 col-lg-6"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <a href="single.html" class="d-block photo-item">
+                <img src="images/img_2.jpg" alt="Image" class="img-fluid" />
+                <div class="photo-text-more">
+                  <div class="photo-text-more">
+                    <h3 class="heading">Chanukkah</h3>
+                    <span class="meta">42 Photos</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div
+              class="col-6 col-md-6 col-lg-3"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              <a href="single.html" class="d-block photo-item">
+                <img src="images/img_3.jpg" alt="Image" class="img-fluid" />
+                <div class="photo-text-more">
+                  <div class="photo-text-more">
+                    <h3 class="heading">HaShem's Love</h3>
+                    <span class="meta">42 Photos</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div
+              class="col-6 col-md-6 col-lg-6"
+              data-aos="fade-up"
+              data-aos-delay=""
+            >
+              <a href="single.html" class="d-block photo-item">
+                <img src="images/img_6.jpg" alt="Image" class="img-fluid" />
+                <div class="photo-text-more">
+                  <div class="photo-text-more">
+                    <h3 class="heading">HaShem's Name</h3>
+                    <span class="meta">42 Photos</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div
+              class="col-6 col-md-6 col-lg-6"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <a href="single.html" class="d-block photo-item">
+                <img src="images/img_7.jpg" alt="Image" class="img-fluid" />
+                <div class="photo-text-more">
+                  <div class="photo-text-more">
+                    <h3 class="heading">Led Light Box 20" X 16"</h3>
+                    <span class="meta">42 Photos</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div
+              class="col-6 col-md-6 col-lg-4"
+              data-aos="fade-up"
+              data-aos-delay=""
+            >
+              <a href="single.html" class="d-block photo-item">
+                <img src="images/img_8.jpg" alt="Image" class="img-fluid" />
+                <div class="photo-text-more">
+                  <div class="photo-text-more">
+                    <h3 class="heading">Led Light Box 22"X28"</h3>
+                    <span class="meta">42 Photos</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div
+              class="col-6 col-md-6 col-lg-4"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <a href="single.html" class="d-block photo-item">
+                <img src="images/img_9.jpg" alt="Image" class="img-fluid" />
+                <div class="photo-text-more">
+                  <div class="photo-text-more">
+                    <h3 class="heading">Pesach</h3>
+                    <span class="meta">42 Photos</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div
+              class="col-6 col-md-6 col-lg-4"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <a href="single.html" class="d-block photo-item">
+                <img src="images/img_10.jpg" alt="Image" class="img-fluid" />
+                <div class="photo-text-more">
+                  <div class="photo-text-more">
+                    <h3 class="heading">Prayers from Kabalah</h3>
+                    <span class="meta">42 Photos</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div
+              class="col-6 col-md-6 col-lg-3"
+              data-aos="fade-up"
+              data-aos-delay=""
+            >
+              <a href="single.html" class="d-block photo-item">
+                <img src="images/img_1.jpg" alt="Image" class="img-fluid" />
+                <div class="photo-text-more">
+                  <div class="photo-text-more">
+                    <h3 class="heading">Psalms Of King David</h3>
+                    <span class="meta">42 Photos</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div
+              class="col-6 col-md-6 col-lg-6"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <a href="single.html" class="d-block photo-item">
+                <img src="images/img_2.jpg" alt="Image" class="img-fluid" />
+                <div class="photo-text-more">
+                  <div class="photo-text-more">
+                    <h3 class="heading">Shabbat</h3>
+                    <span class="meta">42 Photos</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div
+              class="col-6 col-md-6 col-lg-3"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <a href="single.html" class="d-block photo-item">
+                <img src="images/img_3.jpg" alt="Image" class="img-fluid" />
+                <div class="photo-text-more">
+                  <div class="photo-text-more">
+                    <h3 class="heading">Shavua Tov</h3>
+                    <span class="meta">42 Photos</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div
+              class="col-6 col-md-6 col-lg-8"
+              data-aos="fade-up"
+              data-aos-delay=""
+            >
+              <a href="single.html" class="d-block photo-item">
+                <img src="images/img_4.jpg" alt="Image" class="img-fluid" />
+                <div class="photo-text-more">
+                  <div class="photo-text-more">
+                    <h3 class="heading">Shema Israel</h3>
+                    <span class="meta">42 Photos</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div
+              class="col-6 col-md-6 col-lg-4"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <a href="single.html" class="d-block photo-item">
+                <img src="images/img_5.jpg" alt="Image" class="img-fluid" />
+                <div class="photo-text-more">
+                  <div class="photo-text-more">
+                    <h3 class="heading">Tehillim</h3>
+                    <span class="meta">42 Photos</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div
+              class="col-6 col-md-6 col-lg-6"
+              data-aos="fade-up"
+              data-aos-delay=""
+            >
+              <a href="single.html" class="d-block photo-item">
+                <img src="images/img_6.jpg" alt="Image" class="img-fluid" />
+                <div class="photo-text-more">
+                  <div class="photo-text-more">
+                    <h3 class="heading">Torah</h3>
+                    <span class="meta">42 Photos</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div
+              class="col-6 col-md-6 col-lg-6"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <a href="single.html" class="d-block photo-item">
+                <img src="images/img_7.jpg" alt="Image" class="img-fluid" />
+                <div class="photo-text-more">
+                  <div class="photo-text-more">
+                    <h3 class="heading">Zohar HaKaDosh</h3>
+                    <span class="meta">42 Photos</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div> --}}
+<div class="col-12"></div>
+          <div class="row justify-content-center">
+            <div class="col-md-12 text-center py-5">
+              <p class="text-center">
+                This website is under Development by
+                <a href="https://apricopt.com">Apricopt</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </main>

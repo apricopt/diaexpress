@@ -1,0 +1,46 @@
+  <main class="main-content">
+        <div class="container-fluid photos">
+          <div class="row pt-4 mb-5 text-center">
+            <div class="col-12">
+
+              <h2 class="text-white mb-4">{{result.categoryName}} &mdash; {{result.products.length}} Photo(s)</h2>
+              {{#if message}}
+              <h3 class="text-primary">{{message}}</h3>
+              {{/if}}
+            </div>
+          </div>
+
+          <div class="row align-items-stretch">
+            {{#each result.products}}
+            <div class="col-6 col-md-4 col-lg-4" data-aos="fade-up">
+              <a
+                href="{{this.url}}"
+                class="d-block photo-item"
+                data-fancybox="gallery"
+              >
+                <img src="{{this.url}}" alt="Image" class="img-fluid" />
+                <div class="photo-text-more">
+                  <span class="fa fa-icon-zoom-in"></span>
+                  <button class="btn btn-info">View in Viewer</button>
+                </div>
+              </a>
+              <div class="priceBar col-12">
+               <a href="/api/addtocart/{{this._id}}" class="btn btn-primary">Add to Cart</a>
+               <h4 class="pt-2">Price: ${{this.price}}</h4>
+              </div>
+              
+
+            </div>
+            {{/each}}
+           
+<div class="col-12"></div>
+          <div class="row justify-content-center">
+            <div class="col-md-12 text-center py-5">
+              <p>
+                This website is under Development by
+                <a href="https://apricopt.com">Apricopt</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </main>

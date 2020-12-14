@@ -1,0 +1,140 @@
+<h4>Categories Managment</h4>
+<hr>
+{{#if message}}
+<h5 class="message">{{message}}</h5>
+{{/if}}
+<div style="padding: 30px 30px;">
+<button data-target="addEvent" class="btn-floating btn-large pulse modal-trigger"><i class="material-icons">add</i></button>
+</div>
+
+
+
+<table class="responsive-table centered highlight" style="margin: 30px 0px;">
+  <thead>
+    <tr>
+      <th>CategoryName</th>
+       <th>Thumbnail</th>
+      <th>No of Images</th>
+      <th>Delete/Edit</th>
+    </tr>
+  </thead>
+
+  <tbody>
+   
+    {{#each  data}}
+      <tr class="tablerow">
+      <td>{{this.categoryName}}</td>
+       <td><a target="_blank" href="{{this.thumbnail}}"><img style="height: 40px ;width:40px; border-radius:50%; object-fit:cover;" src={{this.thumbnail}}></a></td>
+      <td>{{this.products.length}}</td>
+      <td>
+        
+        <form action="/api/cat/deleteone" method="POST">
+        <input
+         
+         type="submit"
+          class="btn waves-effect red darken-1"
+          value="Delete"
+        >
+        <input type="hidden" name="id" value="{{this._id}}" />
+
+         <button
+          data-target="{{this._id}}"
+          class="btn waves-effect waves-light modal-trigger"
+          name="{{ this._id }}"
+        >
+        </form>
+         
+      
+          <i class="fa fa-edit"></i>
+        </button>
+      </td>
+    </tr>
+    
+    <!-- Edit Modal Structure -->
+  <div id="{{this._id}}" class="modal">
+    <form class="col s12" enctype="multipart/form-data"  method="POST" action="/api/cat/editone">
+    <div class="modal-content">
+      <h4>Edit</h4>
+      
+     <div class="row">
+    
+      <div class="row">
+        <div class="input-field col s4">
+          <input onkeyup="handleChange(event)" placeholder="" id="name" value="{{this.categoryName}}"  name="categoryName" type="text" class="validate">
+          <label for="first_name">First Name</label>
+          <input type="hidden" name="id" value={{this._id}} />
+        </div>
+          <div class="input-field col s6">
+         <div class="file-field input-field">
+      <div class="btn">
+        <span>Image</span>
+        <input required name="url" type="file">
+      </div>
+      <div class="file-path-wrapper">
+        <input name="image" class="file-path validate" type="text">
+      </div>
+    </div>
+         
+        </div>
+       
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Discard</a>
+       <input type="submit" value="Save" class="btn" >
+      
+    </div>
+      </form>
+  </div>
+  {{!-- modal structure ends --}}
+    {{/each}}
+            
+            </tbody>
+</table>
+
+
+
+
+   <div id="addEvent" class="modal">
+    <div class="modal-content">
+      <h4>Create a Category</h4>
+     {{!-- form starts --}}
+     <div class="row">
+    <form class="col s12" enctype="multipart/form-data" action="/api/cat/createone" method="POST">
+      <div class="row">
+          {{!-- entry starts --}}
+        <div class="input-field col s6">
+          <input placeholder="Title" id="first_name" name="categoryName" type="text" >
+          <label for="first_name">CategoryName</label>
+        </div>
+        {{!-- entry ends --}}
+        <div class="input-field col s6">
+         <div class="file-field input-field">
+      <div class="btn">
+        <span>Image</span>
+        <input name="url" type="file">
+      </div>
+      <div class="file-path-wrapper">
+        <input name="image" class="file-path validate" type="text">
+      </div>
+    </div>
+         
+        </div>
+         
+       
+        {{!-- entry starts --}}
+        <div class="input-field col s12">
+          <input value="Create" class="btn teal darken-3" id="first_name" type="submit" >
+         
+        </div>
+        {{!-- entry ends --}}
+        </div
+      
+        </form>
+        </div>
+     {{!-- form ends --}}
+    </div>
+    <div class="modal-footer">
+     
+    </div>
+  </div>
