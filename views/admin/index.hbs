@@ -5,7 +5,7 @@
                                 <div class="card">
                                     <div class="card-content  green white-text">
                                         <p class="card-stats-title"><i class="mdi-social-group-add"></i> Contact Entries</p>
-                                        <h4 class="card-stats-number">0</h4>
+                                        <h4 class="card-stats-number">{{contacts}}</h4>
                                         {{!-- <p class="card-stats-compare"><i class="mdi-hardware-keyboard-arrow-up"></i> 15% <span class="green-text text-lighten-5">from yesterday</span>
                                         </p> --}}
                                     </div>
@@ -18,7 +18,7 @@
                                 <div class="card">
                                     <div class="card-content purple white-text">
                                         <p class="card-stats-title"><i class="mdi-editor-attach-money"></i>Number of orders</p>
-                                        <h4 class="card-stats-number">0</h4>
+                                        <h4 class="card-stats-number">{{orders}}</h4>
                                         {{!-- <p class="card-stats-compare"><i class="mdi-hardware-keyboard-arrow-up"></i> 70% <span class="purple-text text-lighten-5">last month</span>
                                         </p> --}}
                                     </div>
@@ -31,8 +31,8 @@
                             <div class="col s12 m6 l4 l3">
                                 <div class="card">
                                     <div class="card-content blue-grey white-text">
-                                        <p class="card-stats-title"><i class="mdi-action-trending-up"></i> Products For Sale</p>
-                                        <h4 class="card-stats-number">0</h4>
+                                        <p class="card-stats-title"><i class="mdi-action-trending-up"></i> Donations</p>
+                                        <h4 class="card-stats-number">{{donations}}</h4>
                                         {{!-- <p class="card-stats-compare"><i class="mdi-hardware-keyboard-arrow-up"></i> 80% <span class="blue-grey-text text-lighten-5">from yesterday</span>
                                         </p> --}}
                                     </div>

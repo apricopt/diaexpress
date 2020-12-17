@@ -20,6 +20,7 @@ const cors = require("cors");
 const index = require("./routes/index");
 const formhandler = require("./routes/formhandler");
 const admin = require("./routes/admin");
+const paypal = require("./routes/paypal");
 
 // Loading the config
 dotenv.config({ path: "./config/config.env" });
@@ -67,6 +68,8 @@ app.use("/api", formhandler);
 app.use("/api", product);
 // admin
 app.use("/admin", admin);
+// for paypal
+app.use("/paypal", paypal);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

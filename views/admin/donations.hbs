@@ -1,0 +1,45 @@
+<h4 class="teal-text center">Donations</h4>
+<hr  />
+<table class="responsive-table centered highlight">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email Address</th>
+      <th>Amount</th>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each data}}
+    <tr class="tablerow">
+      <td>{{ this.name }} </td>
+      <td>{{ this.email }}</td>
+      <td>{{ this.amount }}</td>
+
+      
+      <td>
+      
+        <button
+          name="{{ this._id }}"
+          onclick="deleteone(event , '/admin/donation/deleteone')"
+          class="btn waves-effect red darken-3"
+          name="action"
+        >
+          <i class="fa fa-trash"></i>
+        </button>
+      </td>
+    </tr>
+     <!-- Edit Modal Structure -->
+ 
+
+  {{!-- modal structure ends --}}
+    {{/each}}
+  </tbody>
+</table>
+
+
+  <!-- Modal Trigger -->
+  {{!-- <button data-target="editModal" class="btn modal-trigger">Modal</button> --}}
+
+ 

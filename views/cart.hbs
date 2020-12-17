@@ -19,7 +19,7 @@
                 <div>
                   <h2 class="mt-0 mb-2"><a href="#">{{this.item.productName}}</a></h2>
                   <div class="meta mb-3"><a href="#">{{this.qty}}</a></div>
-                  <p>This is the description of the product</p>
+                  <p>{{this.item.description}}</p>
                   <p class="text-primarty">Price:${{this.item.price}}</p>
                   <a href="/api/removefromcart/{{this.item._id}}">Remove</a>
                 </div>
@@ -39,9 +39,7 @@
             <div></div>
       <div class="row justify-content-center">
         <div class="col-md-12 text-center py-5">
-          <p>
-         This website is under Development by <a href="https://apricopt.com">Apricopt</a>
-      </p>
+         
         </div>
       </div>
     </div>

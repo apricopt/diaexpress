@@ -34,8 +34,12 @@ router.get("/checkout", (req, res) => {
     return res.redirect("/");
   }
   const cart = new Cart(req.session.cart);
+  array = cart.generateArray();
+  const stringifiedArray = JSON.stringify(array);
+
   res.render("checkout", {
     totalPrice: cart.totalPrice,
+    totalQuantity: cart.totalQuantity,
   });
 });
 
@@ -78,6 +82,26 @@ router.get("/single/:name", (req, res) => {
         .catch((err) => console.log(err));
     })
     .catch((err) => console.log(err));
+});
+
+router.get("/paid/:state", (req, res) => {
+  let state = req.params.state;
+  let paid;
+  if (state == "true") {
+    paid = true;
+  } else {
+    paid = false;
+  }
+  res.render("paid", {
+    paid: paid,
+    message: req.flash("message"),
+  });
+});
+
+router.get("/donate", (req, res) => {
+  res.render("donate", {
+    message: req.flash("message"),
+  });
 });
 
 module.exports = router;

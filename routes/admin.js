@@ -5,6 +5,8 @@ const { Cat } = require("../models/Cat");
 const Product = require("../models/Cat");
 const checkAuth = require("../middleware/auth");
 const User = require("../models/User");
+const Order = require("../models/Order");
+const Donate = require("../models/Donate");
 
 router.get("/login", (req, res) => {
   res.render("admin/login", {
@@ -32,13 +34,17 @@ router.post("/loginauth", async (req, res) => {
 });
 
 router.get("/", checkAuth, async (req, res) => {
-
-
-
-
-  res.render("admin/index", {
-    layout: "adminLayout",
-  });
+  (async () => {
+    const orders = await Order.count();
+    const contacts = await Contact.count();
+    const donations = await Donate.count();
+    res.render("admin/index", {
+      layout: "adminLayout",
+      orders: orders,
+      contacts: contacts,
+      donations: donations,
+    });
+  })();
 });
 
 router.get("/contact", checkAuth, (req, res) => {
@@ -80,9 +86,27 @@ router.get("/products", checkAuth, (req, res) => {
 });
 
 router.get("/orders", checkAuth, (req, res) => {
-  res.render("admin/orders", {
-    layout: "adminLayout",
-  });
+  Order.find({ paid: true })
+    .lean()
+    .then((result) => {
+      res.render("admin/orders", {
+        layout: "adminLayout",
+        data: result,
+      });
+    })
+    .catch((err) => console.log(err));
+});
+
+router.get("/donations", (req, res) => {
+  Donate.find({ paid: true })
+    .lean()
+    .then((result) => {
+      res.render("admin/donations", {
+        layout: "adminLayout",
+        data: result,
+      });
+    })
+    .catch((err) => console.log(err));
 });
 
 // below will be the action
@@ -110,6 +134,24 @@ router.post("/contact/editone", (req, res) => {
 router.post("/contact/deleteone", (req, res) => {
   console.log(req.body);
   Contact.deleteOne({ _id: req.body.id })
+    .then((result) => {
+      res.send("deleted");
+    })
+    .catch((err) => console.log(err));
+});
+
+router.post("/orders/deleteone", (req, res) => {
+  console.log(req.body);
+  Order.deleteOne({ _id: req.body.id })
+    .then((result) => {
+      res.send("deleted");
+    })
+    .catch((err) => console.log(err));
+});
+
+router.post("/donation/deleteone", (req, res) => {
+  console.log(req.body);
+  Donate.deleteOne({ _id: req.body.id })
     .then((result) => {
       res.send("deleted");
     })

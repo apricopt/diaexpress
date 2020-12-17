@@ -19,6 +19,7 @@ function handleChange(e) {
 
 // this function is to delete one
 function deleteone(e, source) {
+  console.log("delete one called", source);
   let element = trueTarget(e);
   axios
     .post(`http://localhost:5000${source}`, {

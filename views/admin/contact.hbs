@@ -30,7 +30,7 @@
         </button>
         <button
           name="{{ this._id }}"
-          onclick="deleteone(event)"
+          onclick="deleteone(event , '/admin/contact/deleteone')"
           class="btn waves-effect red darken-3"
           name="action"
         >
@@ -85,19 +85,13 @@
   </tbody>
 </table>
 <div style="margin: 30px 0px">
-   <form action="/export/contact" style="color:white"></form>
-  <a
-    href="/admin/contact/delete"
-    class="btn waves-effect red darken-3"
-    name="action"
-    >Delete All
-    <i class="fa fa-trash"></i>
-  </a>
+   {{!-- <form action="/export/contact" style="color:white"></form>
+ 
  
   <input style="color:white;" class="btn waves-effect teal lighten-4" value="Export To Excel" type="submit" name="action">
    
    
-    </form>
+    </form> --}}
 </div>
 
   <!-- Modal Trigger -->

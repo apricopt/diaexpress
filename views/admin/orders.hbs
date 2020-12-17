@@ -1,1 +1,91 @@
-<h1>I am the order page</h1>
+<h4 class="teal-text center">Orders</h4>
+<hr  />
+<table class="responsive-table centered highlight">
+  <thead>
+    <tr>
+      <th>Name</th>
+    
+      <th>Email</th>
+      <th>Address</th>
+      <th>Address2</th>
+      <th>Zip</th>
+      <th>total Price</th>
+      <th>total Quantity</th>
+    <th>paymentID</th>
+    <th>Items</th>
+    <th>Delete</th>
+
+  
+ 
+
+
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each data}}
+    <tr class="tablerow">
+      <td>{{ this.firstName }} {{this.lastName}}</td>
+      <td>{{ this.email }}</td>
+      <td>{{ this.address }}</td>
+
+      <td class="moreContent">{{ this.address2}}</td>
+    <td >{{ this.zip }}</td>
+    <td >{{ this.totalPrice }}</td>
+    <td >{{ this.totalQuantity }}</td>
+  
+    <td >{{ this.paymentId }}</td>
+      <td><button
+         
+          data-target="{{this._id}}"
+          class="btn waves-effect waves-light modal-trigger"
+          name="{{ this._id }}"
+        >Show</button></td>
+
+
+
+
+
+
+      <td>
+        <button
+          name="{{ this._id }}"
+          onclick="deleteone(event , '/admin/orders/deleteone')"
+          class="btn waves-effect red darken-3"
+          name="action"
+        >
+          <i class="fa fa-trash"></i>
+        </button>
+      </td>
+    </tr>
+     <!-- Edit Modal Structure -->
+  <div id="{{this._id}}" class="modal">
+   <h5 style="text-align: center;">Products</h5>
+   <div class="productCase">
+   
+   {{#each this.items}}
+   <div class="productCard">
+      <img src="{{this.item.url}}" />
+      <p>Name: {{this.item.productName}}</p>
+      <p>Quantity: {{this.qty}}</p>
+</div>
+ 
+   {{/each}}
+    
+     </div>
+  </div>
+  {{!-- modal structure ends --}}
+    {{/each}}
+  </tbody>
+</table>
+<div style="margin: 30px 0px">
+   {{!-- <form action="/export/orders" style="color:white"></form>
+ 
+ 
+  <input style="color:white;" class="btn waves-effect teal lighten-4" value="Export To Excel" type="submit" name="action"/>
+   
+   
+    </form> --}}
+</div>
+
+ 
