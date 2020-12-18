@@ -4,14 +4,22 @@ const Contact = require("../models/Contact");
 const Donate = require("../models/Donate");
 const paypal = require("paypal-rest-sdk");
 
-// for live mode
+// for testing
 paypal.configure({
-  mode: "live", //sandbox or live
+  mode: "sandbox", //sandbox or live
   client_id:
-    "AZ2TWSbrGsjHHGINwWHWnosbbzdyfTHx52t9KLCZXJqStsoaIJZf6t2-NiuNyMLMXxjWoEW-4V_7ceLV",
+    "ARMxqU6CNz_slWFJdYrr8mzQTxpVAEmDvfxNzPPFjOlgFf1ryZVeTJGQ599NrPGkCr15CRrmed3gCdBg",
   client_secret:
-    "EL2Gi9koFe5ha63YFxai9oXp3H3Jylpc_RGnopEj5olEZ6gPNXFPRoixcY25LOXcVLRD4S9_C-THoMaL",
+    "EK6WzJV2U73nKiqFRQG5EyaXH1phMEbVX056HTwn2o8pzO_H3BnqaToY4Q5koREyvyrKqZn8eXxogdHO",
 });
+// for live mode
+// paypal.configure({
+//   mode: "live", //sandbox or live
+//   client_id:
+//     "AZ2TWSbrGsjHHGINwWHWnosbbzdyfTHx52t9KLCZXJqStsoaIJZf6t2-NiuNyMLMXxjWoEW-4V_7ceLV",
+//   client_secret:
+//     "EL2Gi9koFe5ha63YFxai9oXp3H3Jylpc_RGnopEj5olEZ6gPNXFPRoixcY25LOXcVLRD4S9_C-THoMaL",
+// });
 
 // to post contacts
 router.post("/contact", (req, res) => {
